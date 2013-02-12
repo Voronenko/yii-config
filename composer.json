@@ -1,0 +1,16 @@
+{
+    "name": "voronenko/yii-config",
+    "description": "Helper extension with aim to speedup config changes required by modules",
+    "version":"1.0.0",
+    "type": "library",
+    "license": "MIT",
+    "require": {
+        "php": ">=5.1.0"
+    },
+    "minimum-stability": "dev",
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.0.0"
+        }
+    }
+}
