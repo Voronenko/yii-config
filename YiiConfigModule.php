@@ -23,11 +23,11 @@ class YIIConfigModule extends CWebModule
 	{
 		// Set required classes for import.
 		$this->setImport(array(
-			'yiiconfig.components.*',
-			'yiiconfig.components.behaviors.*',
-			'yiiconfig.components.dataproviders.*',
-			'yiiconfig.controllers.*',
-			'yiiconfig.models.*',
+			'config.components.*',
+			'config.components.behaviors.*',
+			'config.components.dataproviders.*',
+			'config.controllers.*',
+			'config.models.*',
 		));
 
 
@@ -41,4 +41,10 @@ class YIIConfigModule extends CWebModule
 	{
 		return '1.0.0';
 	}
+
+        public function current() {
+           $current = config::model()->current()->ConfigJSON;
+           return $current;
+
+        }
 }
