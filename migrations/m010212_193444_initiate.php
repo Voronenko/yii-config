@@ -1,6 +1,6 @@
 
 <?php 
-class m130212_193444_initiate extends EDbMigration 
+class m010212_193444_initiate extends EDbMigration
 { 
     public function up() 
     { 
