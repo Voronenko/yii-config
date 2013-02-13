@@ -7,14 +7,19 @@ n/a
 EOS;
     }
 
-    /**
-     * Creates data folders
-     * @param type $args
-     */
-    public function run($args) {
+    public function actionWrite(){
+        /** @var $confmodule  YIIConfigModule*/
+        $confmodule = Yii::app()->getModule('config');
+        $confmodule->writeConfig();
+        print 'Config was written to disk '.$confmodule->generateto;
+    }
 
-        $appPath = realpath(Yii::getPathOfAlias('application') . DIRECTORY_SEPARATOR );
-        echo "\nApp Path '{$appPath}'...\n";        
+    public function actionShow(){
+        /** @var $confmodule  YIIConfigModule*/
+        $confmodule = Yii::app()->getModule('config');
+        $config = $confmodule->getCurrentConfig();
+        $jsonconfig = json_decode($config,true);
+        print json_encode($jsonconfig, JSON_PRETTY_PRINT);
     }
 
 }
