@@ -37,9 +37,7 @@ class YIIConfigModule extends CWebModule
 	}
 
 
-	/**
-	* @return the current version.
-	*/
+
 	public function getVersion()
 	{
 		return '1.0.0';
@@ -83,7 +81,11 @@ class YIIConfigModule extends CWebModule
     public function writeConfig(){
         $config = $this->getCurrentConfig();
         $jsonconfig = json_decode($config,true);
-        file_put_contents($this->getGeneratedConfigPath(), '<?php /* this file was generated automatically. */ $config_generated = ' . var_export($jsonconfig, true) . ';');
+        $filecontent = '<?php /* this file was generated automatically. */ $config_generated = ' . var_export($jsonconfig, true) . ';';
+        $filecontent = str_replace(array('0 =>', '1 =>', '2 =>', '3 =>', '4 =>', '5 =>', '6 =>', '7 =>', '8 =>', '9 =>', '10 =>', '11 =>', '12 =>', '13 =>', '14 =>'), '', $filecontent);
+        file_put_contents($this->getGeneratedConfigPath(), $filecontent);
+
+
     }
 
 
